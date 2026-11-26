@@ -1,34 +1,36 @@
-# Zer0 Universal Calculator — literal English source manual
+# Zer0 Universal Calculator — function-to-word translation
 
-This manual translates the repository's implementation into literal English, in the exact order of the original source. Each numbered entry includes the source line followed by its English interpretation. It distinguishes a declaration, a memory operation, a conditional branch, a function call and an actual mathematical calculation. Blank lines inside source files are marked. A trailing end-of-file newline is not counted as an extra source line.
+Read the program as English, not as a series of explanations. The translated programs preserve function boundaries, statement order, indentation, conditional branches and labels, using English words in place of source instructions and syntax. Literal strings and names used to connect functions remain unchanged where necessary.
 
-## Source translations
+## English-language source
 
-| Document | Source | Lines |
-|---|---|---:|
-| [Command-line Assembly interface](calculator.s.md) | [calculator.s](../calculator.s) | 89 |
-| [Native integer Assembly arithmetic](integer_math.s.md) | [integer_math.s](../integer_math.s) | 33 |
-| [Python mathematical engine](engine.py.md) | [engine.py](../engine.py) | 184 |
-| [Automated test suite](test_engine.py.md) | [test_engine.py](../test_engine.py) | 45 |
-| [Build and compiler instructions](Makefile.md) | [Makefile](../Makefile) | 11 |
+| Program | Translation |
+|---|---|
+| Assembly interface and native arithmetic | [Assembly in English](assembly-in-english.md) |
+| Symbolic mathematics and parser | [Engine in English](engine-in-english.md) |
+| Compiler rules and tests | [Build and tests in English](build-and-tests-in-english.md) |
 
-Total: 362 physical source/build lines, including internal blank lines. Every document records the exact source blob SHA it describes. The [original README](../README.md) is already English; its terminal commands and mathematical notation are explained in [the usage and execution guide](usage-and-execution.md).
+For example, the native addition function reads:
 
-## How to read the Assembly
+~~~text
+Function math_add:
+    Move first argument register into accumulator.
+    Add second argument register to accumulator.
+    Jump to overflow if signed overflow flag is set.
+    Move accumulator into memory at address held by third argument register.
+    Exclusive OR low thirty-two bits of accumulator with themselves.
+    Return.
+~~~
 
-- RAX: 64-bit accumulator and integer/pointer return register.
-- EAX: low 32 bits of RAX; writing EAX clears the upper 32 bits of RAX.
-- RDI, RSI, RDX: first, second and third integer/pointer argument registers under the System V AMD64 ABI.
-- RSP: stack pointer. RBP: conventional frame pointer. RIP: instruction pointer.
-- Brackets denote a memory operand; LEA computes an effective address without reading the memory at that address.
-- MOV copies bits; ADD, SUB and IMUL calculate and update arithmetic flags.
-- TEST and CMP update flags without storing an arithmetic result.
-- ZF: zero flag. SF: sign flag. OF: signed overflow flag.
-- JZ/JE: jump if zero/equal. JNE: jump if not equal. JS: jump if sign flag set. JO: jump if signed overflow. JMP: unconditional jump.
-- CALL transfers control while saving a return address. RET restores that return address.
-- PLT: procedure linkage table. GOT: global offset table. These support linking to external library symbols.
-- A label is an address marker, not an instruction. A directive tells the assembler how to produce an object file.
+Each translation also includes a word dictionary. These are English pseudocode, not executable source. External libraries are represented by their calls, not by translations of their internal implementations.
 
-## Scope and limitations
+## Optional technical reference
 
-The mathematical engine delegates advanced algorithms to SymPy; this manual documents the repository's own code, not the entire Python runtime, libc or SymPy implementation. The current program is a hybrid Assembly/Python prototype. The manual describes code behavior, not a proof of mathematical correctness. Run the actual test suite to establish current test status. Domain restrictions can be lost by eager simplification; the timeout is not a security sandbox. Documentation should be revised whenever any source blob changes.
+The previous line-by-line annotations remain available for reference only:
+
+- [Assembly interface](calculator.s.md)
+- [Native arithmetic](integer_math.s.md)
+- [Symbolic engine](engine.py.md)
+- [Tests](test_engine.py.md)
+- [Makefile](Makefile.md)
+- [Usage and execution](usage-and-execution.md)

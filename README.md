@@ -41,6 +41,6 @@ Use parentheses and explicit `*` for ambiguous multiplication. For example, `xy`
 - `test_engine.py`: unit tests.
 - `Makefile`: build, test, clean.
 
-## Literal English source manual
+## Function-to-word English translation
 
-Read the [complete line-by-line source manual](doc/README.md) and [usage and execution guide](doc/usage-and-execution.md).
+Read the [English-language program](doc/README.md), with continuous function-by-function translations of Assembly, Python, tests and build instructions. Line-by-line annotations are optional reference material.

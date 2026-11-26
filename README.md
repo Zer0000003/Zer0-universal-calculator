@@ -40,3 +40,7 @@ Use parentheses and explicit `*` for ambiguous multiplication. For example, `xy`
 - `engine.py`: restricted grammar, symbolic calculations and dispatch.
 - `test_engine.py`: unit tests.
 - `Makefile`: build, test, clean.
+
+## Literal English source manual
+
+Read the [complete line-by-line source manual](doc/README.md) and [usage and execution guide](doc/usage-and-execution.md).

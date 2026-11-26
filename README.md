@@ -41,6 +41,6 @@ Use parentheses and explicit `*` for ambiguous multiplication. For example, `xy`
 - `test_engine.py`: unit tests.
 - `Makefile`: build, test, clean.
 
-## Function-to-word English translation
+## Literal English Pseudocode (LEP)
 
-Read the [English-language program](doc/README.md), with continuous function-by-function translations of Assembly, Python, tests and build instructions. Line-by-line annotations are optional reference material.
+Read the [complete LEP program](doc/README.md) and the [LEP translation standard](doc/LEP-Standard.md). All repository-owned Assembly, Python, tests and build instructions are translated into literal English, preserving program structure. Line-by-line annotations are optional reference material.

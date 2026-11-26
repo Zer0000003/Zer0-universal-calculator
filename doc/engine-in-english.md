@@ -1,4 +1,6 @@
-# Symbolic engine — English-language program
+# Symbolic engine — Literal English Pseudocode (LEP)
+
+Translation convention: [Literal English Pseudocode (LEP) standard](LEP-Standard.md).
 
 Source: engine.py (fa9427b42c69c70d5e5680a9df4b470c86eaa3a7). This is the entire repository-owned Python engine rewritten as English pseudocode. Calls into SymPy retain their meaning; their external implementations are not reproduced.
 
@@ -84,8 +86,8 @@ Function variance with values:
 
 Function binomial_pmf with n, k, p:
     Return binomial coefficient of n and k multiplied by p raised to k
-        multiplied by one minus p raised to the power of n minus k,
-        where the entire base of the last power is one minus p.
+        multiplied by the quantity one minus p raised to the power of
+        the quantity n minus k.
 
 Function normal_cdf with x, mu defaulting to zero, sigma defaulting to one:
     Return the quantity one plus the error function of
@@ -195,12 +197,12 @@ Class Parser:
         Return self.tokens at index self.i.
 
     Function take with self:
-        Set token to self.peek.
+        Set token to the result of calling self.peek.
         Increase self.i by one.
         Return token.
 
     Function accept with self and value:
-        If second element of self.peek equals value:
+        If second element of the result of calling self.peek equals value:
             Call self.take.
             Return true.
         Return false.
@@ -212,14 +214,14 @@ Class Parser:
     Function sequence with self and end:
         Set items to empty list.
         If self.accept called with end returns false:
-            Append result of self.expr to items.
+            Append result of calling self.expr to items.
             While self.accept called with comma returns true:
                 Append result of self.expr to items.
             Call self.expect with end.
         Return items.
 
     Function expr with self and minimum binding power defaulting to zero:
-        Unpack result of self.take into kind and value.
+        Unpack result of calling self.take into kind and value.
 
         If kind equals "num":
             Set left to symbolic rational of value.
@@ -235,7 +237,7 @@ Class Parser:
             Set left to self.expr with minimum binding power twenty-five.
             If value equals minus: set left to negative left.
         Otherwise if value equals opening parenthesis:
-            Set left to self.expr.
+            Set left to the result of calling self.expr.
             Call self.expect with closing parenthesis.
         Otherwise if value equals opening square bracket:
             Set left to self.sequence ending with closing square bracket.
@@ -244,7 +246,7 @@ Class Parser:
                 followed by representation of value.
 
         Repeat indefinitely:
-            Unpack result of self.peek into kind and value.
+            Unpack result of calling self.peek into kind and value.
             If value equals exclamation mark:
                 If forty is less than minimum binding power: break.
                 Call self.take.
@@ -276,10 +278,10 @@ Class Parser:
         Return left.
 
     Function parse with self:
-        Set items to list containing result of self.expr.
+        Set items to list containing result of calling self.expr.
         While self.accept semicolon returns true:
             Append result of self.expr to items.
-        If first element of self.peek is not "end":
+        If first element of the result of calling self.peek is not "end":
             Raise value error "Unexpected token" followed by
                 second element of self.peek.
         Return items.

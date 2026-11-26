@@ -1,4 +1,6 @@
-# Build and tests — English-language program
+# Build and tests — Literal English Pseudocode (LEP)
+
+Translation convention: [Literal English Pseudocode (LEP) standard](LEP-Standard.md).
 
 Sources: Makefile (4da98ddb183dda2723350ae508b1e08c6a024591), test_engine.py (854e1567ed8fcbd7bcd0ba75af6bba894e7ecb06).
 

@@ -13,6 +13,7 @@ Read the program as English, not as a series of explanations. The translated pro
 | Assembly interface and native arithmetic | [Assembly LEP](assembly-in-english.md) |
 | Symbolic mathematics and parser | [Symbolic engine LEP](engine-in-english.md) |
 | Compiler rules and tests | [Build and tests LEP](build-and-tests-in-english.md) |
+| Zer0ian desktop GUI and GUI tests | [Desktop GUI LEP](gui-in-english.md) |
 
 For example, the native addition function reads:
 

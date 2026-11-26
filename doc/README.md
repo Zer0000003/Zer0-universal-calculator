@@ -1,14 +1,18 @@
-# Zer0 Universal Calculator — function-to-word translation
+# Zer0 Universal Calculator — Literal English Pseudocode (LEP)
 
 Read the program as English, not as a series of explanations. The translated programs preserve function boundaries, statement order, indentation, conditional branches and labels, using English words in place of source instructions and syntax. Literal strings and names used to connect functions remain unchanged where necessary.
 
-## English-language source
+## LEP standard
+
+[Literal English Pseudocode — definition, translation rules and examples](LEP-Standard.md)
+
+## Complete LEP source translations
 
 | Program | Translation |
 |---|---|
-| Assembly interface and native arithmetic | [Assembly in English](assembly-in-english.md) |
-| Symbolic mathematics and parser | [Engine in English](engine-in-english.md) |
-| Compiler rules and tests | [Build and tests in English](build-and-tests-in-english.md) |
+| Assembly interface and native arithmetic | [Assembly LEP](assembly-in-english.md) |
+| Symbolic mathematics and parser | [Symbolic engine LEP](engine-in-english.md) |
+| Compiler rules and tests | [Build and tests LEP](build-and-tests-in-english.md) |
 
 For example, the native addition function reads:
 
@@ -22,7 +26,7 @@ Function math_add:
     Return.
 ~~~
 
-Each translation also includes a word dictionary. These are English pseudocode, not executable source. External libraries are represented by their calls, not by translations of their internal implementations.
+Each translation also includes a word dictionary. These are Literal English Pseudocode (LEP), not executable source. External libraries are represented by their calls, not by translations of their internal implementations.
 
 ## Optional technical reference
 

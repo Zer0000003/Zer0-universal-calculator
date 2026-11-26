@@ -13,6 +13,35 @@ make test
 
 Run from this directory so the executable can find `engine.py`. Enter `quit` or `exit` to leave. Use GNU as through GCC, not NASM.
 
+## Zer0ian desktop GUI
+
+The desktop interface uses a black, electric-blue, cyan and magenta cyberpunk palette with graffiti-inspired lettering, a mathematical input console, result panel, symbol keypad, twelve example modules and session history.
+
+On Arch Linux:
+
+```sh
+sudo pacman -S --needed base-devel python python-sympy tk
+make
+python3 gui.py
+```
+
+No network service or language model is required. The GUI runs the same engine.py solver in a background subprocess, using the native arithmetic library when built.
+
+- Enter or Ctrl+Enter: execute the expression.
+- Ctrl+L or Clear: clear the input (and output when idle).
+- Copy: copy the output to the clipboard.
+- Module buttons: load example expressions.
+- Double-click a history entry (or select it and press Enter): recall input and output.
+- History is held in memory for the current session, up to 100 entries.
+
+Test the GUI-to-engine boundary without opening a window:
+
+```sh
+python3 test_gui.py
+```
+
+A graphical desktop session and Tk are required to open the GUI. Headless tests do not verify rendering or interactive behavior. The GUI inherits the solver's domain limitations and is intended for trusted local input.
+
 ## Example inputs
 
 | Area | Input |
@@ -39,6 +68,8 @@ Use parentheses and explicit `*` for ambiguous multiplication. For example, `xy`
 - `integer_math.s`: native integer arithmetic, overflow flagged via `jo`; exact symbolic arithmetic handles overflow.
 - `engine.py`: restricted grammar, symbolic calculations and dispatch.
 - `test_engine.py`: unit tests.
+- `gui.py`: Zer0ian cyberpunk graphical desktop interface.
+- `test_gui.py`: headless GUI-to-engine tests.
 - `Makefile`: build, test, clean.
 
 ## Literal English Pseudocode (LEP)

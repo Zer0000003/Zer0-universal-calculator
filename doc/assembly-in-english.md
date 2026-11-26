@@ -1,4 +1,6 @@
-# Assembly — English-language program
+# Assembly — Literal English Pseudocode (LEP)
+
+Translation convention: [Literal English Pseudocode (LEP) standard](LEP-Standard.md).
 
 Source: calculator.s (bfa1b3746586bba921f6ea3c052078b982c1245b) and integer_math.s (272ef313e106c265122f122dc6e7c62c7afe5592).
 
